@@ -1,0 +1,17 @@
+{
+  "name": "ts-json",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "./node_modules/.bin/tsc -p tsconfig.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/joi": "^6.5.28",
+    "joi": "^9.0.1",
+    "reflect-metadata": "^0.1.3"
+  }
+}

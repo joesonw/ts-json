@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"outDir": "dist",
+		"target": "ES6",
+		"declaration": true,
+		"experimentalDecorators": true,
+        "moduleResolution": "node",
+		"emitDecoratorMetadata": true
+	},
+	"compileOnSave": false,
+    "files": [
+        "src/index.ts"
+    ]
+}
