@@ -1,8 +1,9 @@
 {
   "name": "ts-json",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "joi based validation decorators for typescript",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "tsc -p tsconfig.json"
