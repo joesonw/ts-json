@@ -1,17 +1,34 @@
 {
   "name": "ts-json",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "joi based validation decorators for typescript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "./node_modules/.bin/tsc -p tsconfig.json"
+    "install": "tsc -p tsconfig.json"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Qiaosen Huang",
+  "license": "MIT",
   "dependencies": {
     "@types/joi": "^6.5.28",
     "joi": "^9.0.1",
     "reflect-metadata": "^0.1.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joesonw/ts-json.git"
+  },
+  "keywords": [
+    "joi",
+    "validate",
+    "validator",
+    "typescript",
+    "ts",
+    "schema"
+  ],
+  "bugs": {
+    "url": "https://github.com/joesonw/ts-json/issues"
+  },
+  "homepage": "https://github.com/joesonw/ts-json#readme"
 }
