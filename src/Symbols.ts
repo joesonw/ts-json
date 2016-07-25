@@ -1,4 +1,4 @@
 const Validators = Symbol();
-const ArrayType = Symbol();
+const EmbedType = Symbol();
 export {Validators};
-export {ArrayType};
+export {EmbedType};

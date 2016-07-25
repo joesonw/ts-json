@@ -17,6 +17,8 @@ export default function append(prototype, key, type, method, value?) {
             prototype[Validators][key] = joi.boolean();
         } else if (type === Date) {
             prototype[Validators][key] = joi.date();
+        } else if (type === Array) {
+            prototype[Validators][key] = joi.array();
         } else {
             prototype[Validators][key] = joi.object();
         }

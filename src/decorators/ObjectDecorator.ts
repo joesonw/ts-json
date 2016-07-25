@@ -1,9 +1,9 @@
-/// <reference path="../../node_modules/reflect-metadata/typings.d.ts"/>
 import ReflectType from '../ReflectType';
 import 'reflect-metadata';
 import append from './append';
 import {
     Validators,
+    EmbedType,
 } from '../Symbols';
 import * as joi from 'joi';
 
@@ -13,7 +13,9 @@ export function Keys() {
         if (!type.prototype[Validators]) {
             throw new Error(`@Keys can only be applied on class with validations`);
         }
-        append(prototype, key, type, 'keys', joi.object(type.prototype[Validators]));
+        prototype[EmbedType] = prototype[EmbedType] || {};
+        prototype[EmbedType][key] = type;
+        append(prototype, key, type, 'keys', type.prototype[Validators]);
     }
 }
 /*
