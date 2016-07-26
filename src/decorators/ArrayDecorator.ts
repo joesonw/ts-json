@@ -10,9 +10,6 @@ import * as joi from 'joi';
 export function Allow(...values: any[]) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== Array) {
-            throw new Error(`@Allow can only be applied on array fields`);
-        }
         prototype[EmbedType] = prototype[EmbedType] || {};
         for (const value of values) {
             if (value.constructor !== prototype[EmbedType][key]) {
@@ -23,19 +20,22 @@ export function Allow(...values: any[]) {
     }
 }
 
-export function Items(value) {
+export function Items(value?) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== Array) {
-            throw new Error(`@Items can only be applied on array fields`);
-        }
         prototype[EmbedType] = prototype[EmbedType] || {};
-        if (value.prototype[Validators]) {
-            prototype[EmbedType][key] = value;
-            append(prototype, key, type, 'items', joi.object(value.prototype[Validators]));
+        if (value !== undefined) {
+            if (value.prototype[Validators]) {
+                prototype[EmbedType][key] = value;
+                append(prototype, key, type, 'items', joi.object(value.prototype[Validators]));
+            } else {
+                prototype[EmbedType][key] = value.constructor;
+                append(prototype, key, type, 'items', value);
+            }
         } else {
-            prototype[EmbedType][key] = value.constructor;
-            append(prototype, key, type, 'items', value);
+            const schema = prototype[Validators][key];
+            delete prototype[Validators][key];
+            append(prototype, key, type, 'items', schema);
         }
     }
 }
@@ -43,9 +43,6 @@ export function Items(value) {
 export function Sparse(enabled?: boolean) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== Array) {
-            throw new Error(`@Sparse can only be applied on array fields`);
-        }
         append(prototype, key, type, 'sparse', enabled);
     }
 }
@@ -53,9 +50,6 @@ export function Sparse(enabled?: boolean) {
 export function Single(enabled?: boolean) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== Array) {
-            throw new Error(`@Single can only be applied on array fields`);
-        }
         append(prototype, key, type, 'single', enabled);
     }
 }
@@ -63,9 +57,6 @@ export function Single(enabled?: boolean) {
 export function Min(limit: number) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== Array) {
-            throw new Error(`@Min can only be applied on array fields`);
-        }
         append(prototype, key, type, 'min', limit);
     }
 }
@@ -73,9 +64,6 @@ export function Min(limit: number) {
 export function Max(limit: number) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== Array) {
-            throw new Error(`@Max can only be applied on array fields`);
-        }
         append(prototype, key, type, 'max', limit);
     }
 }
@@ -83,9 +71,6 @@ export function Max(limit: number) {
 export function Length(limit: number) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== Array) {
-            throw new Error(`@Length can only be applied on array fields`);
-        }
         append(prototype, key, type, 'length', limit);
     }
 }
@@ -93,9 +78,6 @@ export function Length(limit: number) {
 export function Unique() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== Array) {
-            throw new Error(`@Unique can only be applied on array fields`);
-        }
         append(prototype, key, type, 'unique');
     }
 }

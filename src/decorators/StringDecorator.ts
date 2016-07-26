@@ -5,90 +5,63 @@ import append from './append';
 export function Insensitive() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Insensitive can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'insensitive');
+        append(prototype, key, String, 'insensitive');
     }
 }
 
 export function Min(limit: number, encoding?: string) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Min can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'min', [limit, encoding]);
+        append(prototype, key, String, 'min', [limit, encoding]);
     }
 }
 
 export function Max(limit: number, encoding?: string) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Max can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'max', [limit, encoding]);
+        append(prototype, key, String, 'max', [limit, encoding]);
     }
 }
 
 export function CreditCard() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@CreditCard can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'creditCard');
+        append(prototype, key, String, 'creditCard');
     }
 }
 
 export function Length(limit: number, encoding?: string) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Length can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'length', [limit, encoding]);
+        append(prototype, key, String, 'length', [limit, encoding]);
     }
 }
 
 export function Regex(pattern: RegExp, name?: string) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Regex can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'regex', [pattern, name]);
+        append(prototype, key, String, 'regex', [pattern, name]);
     }
 }
 
 export function Replace(pattern: RegExp, replacement: string) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Replace can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'replace', [pattern, replacement]);
+        append(prototype, key, String, 'replace', [pattern, replacement]);
     }
 }
 
 export function Alphanum() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Alphanum can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'alphanum');
+        append(prototype, key, String, 'alphanum');
     }
 }
 
 export function Token() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Token can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'token');
+        append(prototype, key, String, 'token');
     }
 }
 
@@ -99,10 +72,7 @@ export function Email(options?: {
 }) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Email can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'email', options);
+        append(prototype, key, String, 'email', options);
     }
 }
 
@@ -112,10 +82,7 @@ export function Ip(options?: {
 }) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Ip can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'ip', [options]);
+        append(prototype, key, String, 'ip', [options]);
     }
 }
 
@@ -125,79 +92,55 @@ export function Uri(options?: {
 }) {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Uri can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'uri', [options]);
+        append(prototype, key, String, 'uri', [options]);
     }
 }
 
 export function Guid() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Guid can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'guid');
+        append(prototype, key, String, 'guid');
     }
 }
 
 export function Hex() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Hex can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'hex');
+        append(prototype, key, String, 'hex');
     }
 }
 
 export function Hostname() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Hostname can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'hostname');
+        append(prototype, key, String, 'hostname');
     }
 }
 
 export function Lowercase() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Lowercase can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'lowercase');
+        append(prototype, key, String, 'lowercase');
     }
 }
 
 export function Uppercase() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Uppercase can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'uppercase');
+        append(prototype, key, String, 'uppercase');
     }
 }
 
 export function Trim() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@Trim can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'trim');
+        append(prototype, key, String, 'trim');
     }
 }
 
 export function IsoDate() {
     return (prototype: any, key: string) => {
         const type = Reflect.getMetadata(ReflectType.TYPE, prototype, key);
-        if (type !== String) {
-            throw new Error(`@IsoDate can only be applied on string fields`);
-        }
-        append(prototype, key, type, 'iosDate');
+        append(prototype, key, String, 'iosDate');
     }
 }
