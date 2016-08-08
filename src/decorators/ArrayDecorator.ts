@@ -30,7 +30,15 @@ export function Items(value?) {
                 append(prototype, key, type, 'items', joi.object(value.prototype[Validators]));
             } else {
                 prototype[EmbedType][key] = value.constructor;
-                append(prototype, key, type, 'items', value);
+                if (value === String) {
+                    append(prototype, key, type, 'items', joi.string());
+                } else if (value === Number) {
+                    append(prototype, key, type, 'items', joi.number());
+                } else if (value === Date) {
+                    append(prototype, key, type, 'items', joi.date());
+                } else if (value === Boolean) {
+                    append(prototype, key, type, 'items', joi.boolean());
+                }
             }
         } else {
             const schema = prototype[Validators][key];
