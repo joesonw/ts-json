@@ -1,12 +1,12 @@
 {
   "name": "ts-json",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "joi based validation decorators for typescript",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json"
   },
   "author": "Qiaosen Huang",
   "license": "MIT",

@@ -1,0 +1,10 @@
+import 'reflect-metadata';
+export declare function Min(limit: number): (prototype: any, key: string) => void;
+export declare function Max(limit: number): (prototype: any, key: string) => void;
+export declare function Greater(limit: number): (prototype: any, key: string) => void;
+export declare function Less(limit: number): (prototype: any, key: string) => void;
+export declare function Integer(): (prototype: any, key: string) => void;
+export declare function Precision(limit: number): (prototype: any, key: string) => void;
+export declare function Multiple(base: number): (prototype: any, key: string) => void;
+export declare function Positive(): (prototype: any, key: string) => void;
+export declare function Negative(): (prototype: any, key: string) => void;

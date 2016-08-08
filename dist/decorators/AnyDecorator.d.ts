@@ -1,0 +1,18 @@
+import 'reflect-metadata';
+export declare function Allow(...values: any[]): (prototype: any, key: string) => void;
+export declare function Valid(...values: any[]): (prototype: any, key: string) => void;
+export declare function Invalid(...values: any[]): (prototype: any, key: string) => void;
+export declare function Required(): (prototype: any, key: string) => void;
+export declare function Optional(): (prototype: any, key: string) => void;
+export declare function Forbidden(): (prototype: any, key: string) => void;
+export declare function Strip(): (prototype: any, key: string) => void;
+export declare function Description(desc: string): (prototype: any, key: string) => void;
+export declare function Notes(notes: string | string[]): (prototype: any, key: string) => void;
+export declare function Tags(tags: string | string[]): (prototype: any, key: string) => void;
+export declare function Meta(meta: any): (prototype: any, key: string) => void;
+export declare function Example(value: any): (prototype: any, key: string) => void;
+export declare function Unit(name: string): (prototype: any, key: string) => void;
+export declare function Options(options: any): (prototype: any, key: string) => void;
+export declare function Strict(isStrict: boolean): (prototype: any, key: string) => void;
+export declare function Default(value: any, description?: string): (prototype: any, key: string) => void;
+export declare function Label(name: string): (prototype: any, key: string) => void;
